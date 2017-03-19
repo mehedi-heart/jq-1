@@ -1,0 +1,21 @@
+.first{
+ background: red !important; 
+}
+.even{
+    background: green;
+}
+.odd{
+ background: yellow
+}
+.last{
+    background: pink
+}
+.img-responsive{
+    margin-bottom: 25px;
+}
+select#bgcolor {
+    margin: 0 auto;
+    max-width: 100px;
+    display: block;
+    height: 37px;
+}

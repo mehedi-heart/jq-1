@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>javascript another project</title>
+   <link href="css/bootstrap.css" rel="stylesheet">
+   <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body> 
+  
+  <section id="background-area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-6">
+                  <select name="background-color" id="bgcolor">
+                      <option value="white">white</option>
+                      <option value="maroon">maroon</option>
+                      <option value="red">red</option>
+                      <option value="blue">blue</option>
+                      <option value="green">green</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+   
+ <section id="fade-toggle">
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-12">
+                 <button type="button" class="btn btn-warning">fade toggle</button>
+                 <p class="fade-toggle"> simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+             </div>
+         </div>
+     </div>
+ </section>
+ 
+ 
+ <section id="selected-area">
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-6">
+                 <ul class="list-unstyled">
+                     <li>recently with desktop publishing</li>
+                     <li>recently with desktop publishing</li>
+                     <li>recently with desktop publishing</li>
+                     <li>recently with desktop publishing</li>
+                     <li>recently with desktop publishing</li>
+                     <li>recently with desktop publishing</li>
+                     <li>recently with desktop publishing</li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+ </section>
+ 
+ <section id="text-area">
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-6">
+                 <textarea rows="10" cols="90"></textarea>
+                 <span class="textspan"></span>
+             </div>
+         </div>
+     </div>
+ </section>
+ 
+ 
+ <section id="button-area">
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-12">
+                 <ul class="list-inline">
+                     <li class="btn btn-info btn-lg all">All</li>
+                     <li class="btn btn-info btn-lg html">html and css</li>
+                     <li class="btn btn-info btn-lg psd">psd to html</li>
+                     <li class="btn btn-info btn-lg wp">wordpress</li>
+                     
+                 </ul>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-sm-3 html">
+                 <img src="images/img1.jpg" class="img-responsive" alt="">
+             </div>
+             <div class="col-sm-3 psd">
+                 <img src="images/img2.jpg" class="img-responsive" alt="">
+             </div>
+             <div class="col-sm-3 html">
+                 <img src="images/img3.png" class="img-responsive" alt="">
+             </div>
+             <div class="col-sm-3 psd">
+                 <img src="images/img1.jpg" class="img-responsive" alt="">
+             </div>
+             <div class="col-sm-3 wp">
+                 <img src="images/img2.jpg" class="img-responsive" alt="">
+             </div>
+             <div class="col-sm-3 psd">
+                 <img src="images/img3.png" class="img-responsive" alt="">
+             </div>
+             <div class="col-sm-3 wp">
+                 <img src="images/img2.jpg" class="img-responsive" alt="">
+             </div>
+         </div>
+     </div>
+ </section>
+ 
+ 
+ <section id="form-area">
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-4">
+                 <form>
+                     <div class="form-group">
+                         <input type="email" placeholder="email address" class="form-control mail" >
+                         <span class="mailspan"></span>
+                     </div>
+                     <div class="form-group">
+                         <input type="password" placeholder="password" class="form-control pw">
+                         <span class="passwordspan"></span>
+                     </div>
+                     <div class="form-group">
+                         <input type="button" class="btn btn-success btn-lg" value="log in">
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+ </section>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    
+    //background-area
+    $(document).ready(function(){
+        
+        $("#bgcolor").change(function(){
+          var color = $("#bgcolor").val();
+        $("body").css("background",color);
+        })
+    })
+ 
+    //fade-toggle
+    $(document).ready(function(){
+      $(".btn-warning").click(function(){
+        $(".fade-toggle").fadeToggle(1000);
+      })
+    })
+
+    
+    //selected-area
+    
+    $(document).ready(function(){
+      $(".list-unstyled li:first-child").addClass("first");
+      $(".list-unstyled li:even").addClass("even");
+      $(".list-unstyled li:odd").addClass("odd");
+      $(".list-unstyled li:last-child").addClass("last");
+    })
+    
+    //text-area
+    $(document).ready(function(){
+        $(".textspan").css("font-size","18px")
+      var i = 10;
+        var textshow = " characters, you have remaining"
+        $(".textspan").text(i + textshow);
+        $("textarea").keyup(function(){
+            var str = $("textarea").val().length;
+            var text = i-str;
+            $(".textspan").text(text + textshow);
+            if(text <=0){
+                $(".textspan").css("background","red");
+                $("textarea").attr("readonly","true")
+                $(".textspan").css("color","#fff");
+            }
+        })
+    })
+    
+    
+    //button-area
+    $(document).ready(function(){
+       $("ul li.all").click(function(){
+           $("div.html").fadeIn(1000);
+           $("div.psd").fadeIn(1000);
+           $("div.wp").fadeIn(1000);
+       })
+       $("ul li.html").click(function(){
+           $("div.html").fadeIn(1000);
+           $("div.psd").fadeOut(1000);
+           $("div.wp").fadeOut(1000);
+       })
+        $("ul li.psd").click(function(){
+           $("div.html").fadeOut(1000);
+           $("div.psd").fadeIn(1000);
+           $("div.wp").fadeOut(1000);
+       })
+         $("ul li.wp").click(function(){
+           $("div.html").fadeOut(1000);
+           $("div.psd").fadeOut(1000);
+           $("div.wp").fadeIn(1000);
+       })
+    })
+    
+    //form-area
+    
+    $(document).ready(function(){
+        
+        $(".mail").keyup(function(){
+            var ml = $(".mail").val();
+            var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+            if(!email_regex.test(ml)){
+                $(".mailspan").text("type solid email id");
+            }else{
+                 $(".mailspan").text("this is perfect email address");
+            }
+        })
+        
+        $(".pw").keyup(function(){
+          var pw = $(".pw").val().length;
+           if(pw <= 3){
+               $(".passwordspan").html("<b>weak</b>");
+               $(".passwordspan").css("color","red");
+           }else if(pw <= 5){
+               $(".passwordspan").css("color","yellow");
+               $(".passwordspan").html("<b>medium</b>");
+               
+           }else{
+               $(".passwordspan").css("color","green");
+               $(".passwordspan").html("<b>strong</b>");
+               
+           }
+        })
+    })
+    
+</script>
+</body>
+
+</html>
